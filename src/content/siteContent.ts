@@ -1,7 +1,7 @@
 ﻿export const contact = {
   whatsappDisplay: '(61) 98385-2016',
-  whatsappUrl: 'https://wa.me/5561983852016?text=Oi%2C%20Versao%20Vegana!%20Quero%20fazer%20um%20pedido.',
-  email: 'restauranteversão.vegana@gmail.com',
+  whatsappUrl: 'https://wa.me/5561983852016?text=Oi%2C%20Vers%C3%A3o%20Vegana!%20Quero%20fazer%20um%20pedido.',
+  email: 'restauranteversao.vegana@gmail.com',
   city: 'Sobradinho, DF',
   instagramUrl: '',
   systemUrl: '/sistema',
@@ -14,9 +14,9 @@ export const specialties = [
     accent: 'tomate, ervas e molho da casa',
   },
   {
-    name: 'Baiao de dois vegano',
+    name: 'Baião de dois vegano',
     detail: 'Afeto de comida brasileira em uma versão sem ingredientes de origem animal.',
-    accent: 'arroz, feijao, temperos e Cerrado',
+    accent: 'arroz, feijão, temperos e Cerrado',
   },
   {
     name: 'Almôndegas vegetais',
@@ -61,5 +61,17 @@ export const galleryItems = [
   'Doces veganos',
 ];
 
+export const trustSignals = [
+  'Atendimento em Sobradinho e região',
+  'Retirada, delivery e encomendas',
+  'Eventos com orçamento personalizado',
+  'Pedidos confirmados pelo WhatsApp',
+];
 
-
+export const budgetProducts = [
+  { id: 'baguete', name: 'Baguete recheada', unit: 'unidade', price: 30 },
+  { id: 'baiao', name: 'Baião de dois vegano', unit: 'porção', price: 28 },
+  { id: 'almondegas', name: 'Almôndegas vegetais', unit: 'porção', price: 30 },
+  { id: 'bolo-cenoura', name: 'Bolo de cenoura vegano', unit: 'unidade', price: 12 },
+  { id: 'doces', name: 'Doces veganos variados', unit: 'unidade', price: 8 },
+];
