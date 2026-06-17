@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/sistema",
+      "destination": "https://versao-vegana-app.vercel.app/sistema"
+    },
+    {
+      "source": "/sistema/:path*",
+      "destination": "https://versao-vegana-app.vercel.app/sistema/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
