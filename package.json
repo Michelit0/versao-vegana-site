@@ -1,24 +1,29 @@
 {
   "name": "versao-vegana-site",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "build": "vite build",
-    "typecheck": "tsc --noEmit --incremental false",
-    "preview": "vite preview --host 127.0.0.1"
+    "dev": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro dev --host 127.0.0.1",
+    "build": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro check && cross-env ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "typecheck": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro check",
+    "preview": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro preview --host 127.0.0.1"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "^6.0.2",
+    "@astrojs/react": "^5.0.7",
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource/poppins": "^5.2.7",
+    "astro": "^6.4.8",
+    "@lucide/astro": "^1.21.0",
     "lucide-react": "^0.468.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "vite": "^8.0.16"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@astrojs/check": "^0.9.9",
+    "cross-env": "^10.1.0",
     "typescript": "^6.0.3"
   }
 }

@@ -1,0 +1,91 @@
+---
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import '@fontsource/poppins/800.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { contact } from '../content/siteContent';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  image?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  canonicalPath = Astro.url.pathname,
+  image = '/og/versao-vegana.jpg',
+  schema = [],
+} = Astro.props;
+
+const canonical = new URL(canonicalPath, Astro.site);
+const socialImage = new URL(image, Astro.site);
+const schemas = Array.isArray(schema) ? schema : [schema];
+const restaurantSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Restaurant',
+  name: 'Versão Vegana',
+  description: 'Culinária brasileira inclusiva e 100% vegetal em Sobradinho e região.',
+  url: new URL('/', Astro.site).toString(),
+  logo: new URL('/brand/icon.svg', Astro.site).toString(),
+  image: socialImage.toString(),
+  servesCuisine: ['Brasileira', 'Vegana', 'Culinária do Cerrado'],
+  areaServed: contact.city,
+  email: contact.email,
+  telephone: contact.whatsappDisplay,
+  sameAs: [contact.instagramUrl],
+  priceRange: '$$',
+};
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#273418" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/brand/icon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Versão Vegana" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <title>{title}</title>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(restaurantSchema)} />
+    {schemas.map((item) => <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />)}
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <Header />
+    <main id="conteudo">
+      <slot />
+    </main>
+    <Footer />
+    <a
+      class="mobile-whatsapp"
+      href={contact.whatsappUrl}
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Fazer pedido pelo WhatsApp"
+    >
+      Pedir pelo WhatsApp
+    </a>
+  </body>
+</html>

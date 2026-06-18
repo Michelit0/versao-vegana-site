@@ -1,0 +1,23 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  text: string;
+  tone?: 'green' | 'wine' | 'cream';
+}
+
+const { eyebrow, title, text, tone = 'cream' } = Astro.props;
+---
+
+<header class:list={['page-hero', `page-hero-${tone}`]}>
+  <div class="page-shell">
+    <nav class="breadcrumbs" aria-label="Trilha de navegação">
+      <a href="/">Início</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{title}</span>
+    </nav>
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    <p class="page-lead">{text}</p>
+  </div>
+</header>

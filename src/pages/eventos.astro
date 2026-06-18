@@ -1,0 +1,105 @@
+---
+import { Image } from 'astro:assets';
+import { ArrowRight, CalendarCheck, ClipboardCheck, MessageCircle, Utensils } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Callout from '../components/Callout.astro';
+import heroImage from '../assets/images/mesa-vegetal.jpg';
+import { eventFormats, faq } from '../content/siteContent';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+---
+
+<BaseLayout
+  title="Encomendas e eventos | Versão Vegana"
+  description="Planeje encomendas, buffet, feiras e eventos com culinária brasileira vegana em Sobradinho e região."
+  canonicalPath="/eventos"
+  schema={faqSchema}
+>
+  <PageHero
+    eyebrow="Planejamento com sabor"
+    title="Encomendas e eventos"
+    text="Uma mesa inclusiva começa entendendo o público, o momento e a estrutura do evento. A gente organiza essa conversa com você."
+    tone="green"
+  />
+
+  <section class="section page-shell">
+    <div class="section-heading split-heading">
+      <div>
+        <p class="eyebrow">Formatos de atendimento</p>
+        <h2>Comida para diferentes tamanhos de encontro</h2>
+      </div>
+      <p>O cardápio é alinhado ao número de pessoas, ao formato de serviço e às necessidades informadas.</p>
+    </div>
+    <div class="event-format-grid">
+      {eventFormats.map((format, index) => (
+        <article>
+          <span>0{index + 1}</span>
+          <Utensils size={23} aria-hidden="true" />
+          <h3>{format.title}</h3>
+          <p>{format.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="event-image-band">
+    <Image
+      src={heroImage}
+      alt="Variedade de preparos vegetais servidos em uma mesa"
+      widths={[960, 1600, 2200]}
+      sizes="100vw"
+      loading="lazy"
+    />
+    <div class="event-image-copy">
+      <p class="eyebrow eyebrow-light">Mesa para todo mundo</p>
+      <h2>Sabor, logística e inclusão precisam chegar juntos</h2>
+      <p>Por isso cada evento é confirmado depois de uma conversa direta com a equipe.</p>
+    </div>
+  </section>
+
+  <section class="section page-shell">
+    <div class="section-heading centered">
+      <p class="eyebrow">Como funciona</p>
+      <h2>Da ideia à confirmação em quatro passos</h2>
+    </div>
+    <ol class="process-list">
+      <li><MessageCircle aria-hidden="true" /><strong>Conte o evento</strong><span>Data, local, público e necessidades.</span></li>
+      <li><ClipboardCheck aria-hidden="true" /><strong>Monte uma prévia</strong><span>Escolha itens e veja uma estimativa.</span></li>
+      <li><CalendarCheck aria-hidden="true" /><strong>Confirme a agenda</strong><span>A equipe valida produção e entrega.</span></li>
+      <li><Utensils aria-hidden="true" /><strong>Feche o cardápio</strong><span>Valores e detalhes ficam registrados.</span></li>
+    </ol>
+    <div class="section-action">
+      <a class="button button-primary" href="/orcamento">
+        Começar pré-orçamento <ArrowRight size={18} aria-hidden="true" />
+      </a>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="page-shell faq-layout">
+      <div class="section-heading">
+        <p class="eyebrow">Dúvidas frequentes</p>
+        <h2>Antes de chamar, talvez a resposta já esteja aqui</h2>
+      </div>
+      <div class="faq-list">
+        {faq.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Callout />
+</BaseLayout>

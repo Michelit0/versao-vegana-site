@@ -1,0 +1,53 @@
+---
+import { Menu, MessageCircle, UsersRound } from '@lucide/astro';
+import { contact } from '../content/siteContent';
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const links = [
+  { href: '/cardapio', label: 'Cardápio' },
+  { href: '/eventos', label: 'Encomendas e eventos' },
+  { href: '/cerrado', label: 'Cerrado' },
+  { href: '/sobre', label: 'Nossa história' },
+];
+
+const isCurrent = (href: string) => currentPath === href;
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-link" href="/" aria-label="Versão Vegana, página inicial">
+      <img src="/brand/logo-horizontal.svg" alt="Versão Vegana" width="733" height="300" />
+    </a>
+
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      {links.map((link) => (
+        <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
+      ))}
+    </nav>
+
+    <div class="header-actions">
+      <a class="team-link" href={contact.systemUrl}>
+        <UsersRound size={17} aria-hidden="true" />
+        Área da equipe
+      </a>
+      <a class="button button-primary button-small" href={contact.whatsappUrl} target="_blank" rel="noreferrer">
+        <MessageCircle size={18} aria-hidden="true" />
+        Pedir agora
+      </a>
+    </div>
+
+    <details class="mobile-nav">
+      <summary aria-label="Abrir menu de navegação">
+        <Menu size={24} aria-hidden="true" />
+        <span>Menu</span>
+      </summary>
+      <nav aria-label="Navegação móvel">
+        {links.map((link) => (
+          <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
+        ))}
+        <a href="/orcamento">Pré-orçamento</a>
+        <a href={contact.systemUrl}>Área da equipe</a>
+      </nav>
+    </details>
+  </div>
+</header>

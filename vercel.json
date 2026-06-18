@@ -7,10 +7,6 @@
     {
       "source": "/sistema/:path*",
       "destination": "https://versao-vegana-app.vercel.app/sistema/:path*"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
     }
   ]
 }

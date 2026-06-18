@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { contact } from '../content/siteContent';
+---
+
+<BaseLayout
+  title="Privacidade | Versão Vegana"
+  description="Entenda como o site da Versão Vegana trata informações enviadas pelo simulador e pelo WhatsApp."
+  canonicalPath="/privacidade"
+>
+  <PageHero
+    eyebrow="Transparência"
+    title="Privacidade"
+    text="O site foi construído para coletar o mínimo necessário e deixar claro quando uma informação sai do seu dispositivo."
+    tone="cream"
+  />
+  <article class="section page-shell legal-copy">
+    <h2>Simulador de pré-orçamento</h2>
+    <p>
+      As informações preenchidas no simulador ficam armazenadas apenas no navegador, por meio de armazenamento local,
+      para facilitar a continuidade do preenchimento. Elas não são enviadas automaticamente ao banco de dados.
+    </p>
+    <h2>Contato pelo WhatsApp</h2>
+    <p>
+      Ao escolher confirmar a prévia, o site abre o WhatsApp com uma mensagem preparada. O envio só acontece quando você
+      confirma no próprio aplicativo, sujeito às políticas da plataforma.
+    </p>
+    <h2>Como solicitar informações</h2>
+    <p>
+      Dúvidas sobre dados fornecidos no atendimento podem ser enviadas para
+      <a href={`mailto:${contact.email}`}>{contact.email}</a>.
+    </p>
+    <h2>Cookies e rastreamento</h2>
+    <p>Esta versão do site não utiliza cookies publicitários nem ferramentas próprias de rastreamento de comportamento.</p>
+  </article>
+</BaseLayout>

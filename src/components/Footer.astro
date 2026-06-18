@@ -1,0 +1,45 @@
+---
+import { AtSign, Mail, MapPin, MessageCircle } from '@lucide/astro';
+import { contact } from '../content/siteContent';
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/brand/logo-horizontal.svg" alt="Versão Vegana" width="733" height="300" />
+      <p>Culinária brasileira, inclusiva e 100% vegetal.</p>
+    </div>
+
+    <nav aria-label="Links do site">
+      <strong>Descubra</strong>
+      <a href="/cardapio">Cardápio</a>
+      <a href="/eventos">Encomendas e eventos</a>
+      <a href="/cerrado">Cerrado</a>
+      <a href="/sobre">Nossa história</a>
+    </nav>
+
+    <address>
+      <strong>Fale com a gente</strong>
+      <a href={contact.whatsappUrl} target="_blank" rel="noreferrer">
+        <MessageCircle size={18} aria-hidden="true" />
+        {contact.whatsappDisplay}
+      </a>
+      <a href={contact.instagramUrl} target="_blank" rel="noreferrer">
+        <AtSign size={18} aria-hidden="true" />
+        {contact.instagramHandle}
+      </a>
+      <a href={`mailto:${contact.email}`}>
+        <Mail size={18} aria-hidden="true" />
+        {contact.email}
+      </a>
+      <span><MapPin size={18} aria-hidden="true" /> {contact.city}</span>
+    </address>
+  </div>
+  <div class="footer-bottom">
+    <span>© {new Date().getFullYear()} Versão Vegana</span>
+    <div>
+      <a href="/privacidade">Privacidade</a>
+      <a href={contact.systemUrl}>Área da equipe</a>
+    </div>
+  </div>
+</footer>

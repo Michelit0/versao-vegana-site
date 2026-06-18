@@ -1,0 +1,31 @@
+---
+import { ArrowRight, MessageCircle } from '@lucide/astro';
+import { contact } from '../content/siteContent';
+
+interface Props {
+  title?: string;
+  text?: string;
+}
+
+const {
+  title = 'Vamos colocar uma mesa inclusiva de pé?',
+  text = 'Conte o que você está planejando. A equipe confirma cardápio, disponibilidade, prazo e entrega pelo WhatsApp.',
+} = Astro.props;
+---
+
+<section class="callout">
+  <div>
+    <p class="eyebrow">Próximo passo</p>
+    <h2>{title}</h2>
+    <p>{text}</p>
+  </div>
+  <div class="callout-actions">
+    <a class="button button-cream" href={contact.whatsappUrl} target="_blank" rel="noreferrer">
+      <MessageCircle size={19} aria-hidden="true" />
+      Falar com a equipe
+    </a>
+    <a class="button button-outline-light" href="/orcamento">
+      Montar pré-orçamento <ArrowRight size={18} aria-hidden="true" />
+    </a>
+  </div>
+</section>

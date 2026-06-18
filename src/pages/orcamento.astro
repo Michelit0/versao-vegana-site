@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import QuoteBuilder from '../components/QuoteBuilder';
+import { budgetProducts, contact } from '../content/siteContent';
+---
+
+<BaseLayout
+  title="Pré-orçamento | Versão Vegana"
+  description="Escolha pratos, quantidades e informações do evento para gerar uma prévia de orçamento e confirmar pelo WhatsApp."
+  canonicalPath="/orcamento"
+>
+  <PageHero
+    eyebrow="Uma primeira visão do pedido"
+    title="Monte seu pré-orçamento"
+    text="Escolha itens, informe os detalhes essenciais e envie uma mensagem organizada. A equipe confirma disponibilidade, prazo, entrega e valor final."
+    tone="cream"
+  />
+  <section class="section page-shell quote-page-section">
+    <QuoteBuilder
+      products={budgetProducts}
+      whatsappNumber={contact.whatsappNumber}
+      client:load
+    />
+  </section>
+</BaseLayout>

@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Callout from '../components/Callout.astro';
+import { products } from '../content/siteContent';
+
+const groupedProducts = Object.entries(
+  products.reduce<Record<string, typeof products>>((groups, product) => {
+    groups[product.category] = [...(groups[product.category] || []), product];
+    return groups;
+  }, {}),
+);
+
+const menuSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Menu',
+  name: 'Cardápio Versão Vegana',
+  hasMenuSection: groupedProducts.map(([category, items]) => ({
+    '@type': 'MenuSection',
+    name: category,
+    hasMenuItem: items.map((item) => ({
+      '@type': 'MenuItem',
+      name: item.name,
+      description: item.description,
+      offers: {
+        '@type': 'Offer',
+        price: item.price,
+        priceCurrency: 'BRL',
+        availability: item.available ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+      },
+    })),
+  })),
+};
+---
+
+<BaseLayout
+  title="Cardápio | Versão Vegana"
+  description="Conheça os pratos brasileiros, salgados, congelados, bolos e doces veganos da Versão Vegana."
+  canonicalPath="/cardapio"
+  schema={menuSchema}
+>
+  <PageHero
+    eyebrow="Sabores da casa"
+    title="Cardápio"
+    text="Pratos brasileiros, encomendas e opções para deixar a semana mais prática. Consulte disponibilidade, tamanhos e sabores pelo WhatsApp."
+    tone="wine"
+  />
+
+  <section class="section page-shell">
+    <div class="menu-notice">
+      <strong>Cardápio vivo</strong>
+      <p>
+        A disponibilidade muda conforme a produção. Valores são referências iniciais e podem variar por tamanho,
+        quantidade e formato do pedido.
+      </p>
+    </div>
+    {groupedProducts.map(([category, items]) => (
+      <section class="menu-category" aria-labelledby={`category-${category.replaceAll(' ', '-').toLowerCase()}`}>
+        <div class="category-heading">
+          <h2 id={`category-${category.replaceAll(' ', '-').toLowerCase()}`}>{category}</h2>
+          <span>{items.length} {items.length === 1 ? 'opção' : 'opções'}</span>
+        </div>
+        <div class="product-grid">
+          {items.map((product) => <ProductCard product={product} />)}
+        </div>
+      </section>
+    ))}
+    <p class="image-disclaimer">Imagens ilustrativas. A apresentação dos pratos pode variar.</p>
+  </section>
+
+  <Callout
+    title="Encontrou o que combina com seu momento?"
+    text="A equipe confirma disponibilidade, quantidade, prazo e entrega pelo WhatsApp."
+  />
+</BaseLayout>
