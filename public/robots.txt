@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /sistema
+
+Sitemap: https://www.versaovegana.net.br/sitemap-index.xml

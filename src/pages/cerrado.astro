@@ -1,0 +1,74 @@
+---
+import { Leaf, Recycle, Sprout, UsersRound } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Callout from '../components/Callout.astro';
+---
+
+<BaseLayout
+  title="Cerrado, comida e sustentabilidade | Versão Vegana"
+  description="Conheça a proposta da Versão Vegana para aproximar ingredientes do Cerrado, produtores locais e culinária vegetal."
+  canonicalPath="/cerrado"
+>
+  <PageHero
+    eyebrow="Território, cultura e futuro"
+    title="Cerrado no prato"
+    text="Ingredientes nativos contam histórias de biodiversidade, conhecimento e trabalho local. Aproximá-los da mesa também é uma forma de cuidado."
+    tone="green"
+  />
+
+  <section class="section page-shell cerrado-intro">
+    <div>
+      <p class="eyebrow">Por que isso importa</p>
+      <h2>Comida não começa na cozinha</h2>
+    </div>
+    <div class="long-copy">
+      <p>
+        Ela começa no solo, nas sementes, nas pessoas que cultivam e nos conhecimentos transmitidos ao longo do tempo.
+        O Cerrado oferece ingredientes com identidade própria, mas ainda aparece pouco na alimentação cotidiana.
+      </p>
+      <p>
+        A proposta da Versão Vegana é experimentar caminhos para usar esses sabores em preparos acessíveis,
+        aproximando sustentabilidade de uma comida familiar, gostosa e possível.
+      </p>
+    </div>
+  </section>
+
+  <section class="cerrado-ingredients">
+    <div class="page-shell">
+      <div class="section-heading">
+        <p class="eyebrow eyebrow-light">Ingredientes e possibilidades</p>
+        <h2>Sabores nativos que podem ocupar mais espaço</h2>
+      </div>
+      <div class="ingredient-grid">
+        <article><span>01</span><h3>Baru</h3><p>Castanha do Cerrado com textura, sabor marcante e diferentes possibilidades culinárias.</p></article>
+        <article><span>02</span><h3>Pequi</h3><p>Ingrediente de identidade forte, ligado à memória e às cozinhas do Centro-Oeste.</p></article>
+        <article><span>03</span><h3>Jatobá</h3><p>Fruto nativo que inspira novas receitas e conversas sobre biodiversidade.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section page-shell impact-grid">
+    <article><Leaf aria-hidden="true" /><h3>Mais vegetal</h3><p>Ampliar opções vegetais ajuda a diversificar hábitos e formas de produzir comida.</p></article>
+    <article><UsersRound aria-hidden="true" /><h3>Renda local</h3><p>Valorizar fornecedores e saberes próximos fortalece a economia do território.</p></article>
+    <article><Recycle aria-hidden="true" /><h3>Menos desperdício</h3><p>Planejamento de produção, embalagens conscientes e aproveitamento caminham juntos.</p></article>
+    <article><Sprout aria-hidden="true" /><h3>Bioeconomia</h3><p>Biodiversidade preservada pode gerar alimento, inovação e oportunidade.</p></article>
+  </section>
+
+  <section class="inova-note page-shell">
+    <div>
+      <p class="eyebrow">Uma proposta em construção</p>
+      <h2>Inova Cerrado Tração 2025</h2>
+    </div>
+    <p>
+      A Versão Vegana apresentou uma proposta ao Inova Cerrado Tração 2025, conectando culinária vegetal,
+      ingredientes nativos, produtores locais e práticas de menor impacto. A inscrição faz parte do desenvolvimento
+      dessa visão e não representa, por si só, seleção ou vínculo institucional com o programa.
+    </p>
+  </section>
+
+  <Callout
+    title="Quer levar sabores vegetais para a sua mesa?"
+    text="Converse com a equipe sobre cardápio, disponibilidade e possibilidades para sua encomenda."
+  />
+</BaseLayout>

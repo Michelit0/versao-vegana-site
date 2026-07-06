@@ -1,0 +1,24 @@
+---
+import { ArrowLeft, MessageCircle } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { contact } from '../content/siteContent';
+---
+
+<BaseLayout
+  title="Página não encontrada | Versão Vegana"
+  description="A página procurada não foi encontrada."
+  canonicalPath="/404"
+>
+  <section class="not-found page-shell">
+    <img src="/brand/icon.svg" alt="" width="810" height="810" />
+    <p class="eyebrow">Erro 404</p>
+    <h1>Essa receita não está no nosso caderno</h1>
+    <p>O endereço pode ter mudado ou a página não existe.</p>
+    <div class="inline-actions">
+      <a class="button button-primary" href="/"><ArrowLeft size={18} aria-hidden="true" /> Voltar ao início</a>
+      <a class="button button-outline" href={contact.whatsappUrl} target="_blank" rel="noreferrer">
+        <MessageCircle size={18} aria-hidden="true" /> Falar com a equipe
+      </a>
+    </div>
+  </section>
+</BaseLayout>

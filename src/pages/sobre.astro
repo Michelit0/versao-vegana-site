@@ -1,0 +1,65 @@
+---
+import { HeartHandshake, Leaf, MapPinned, Utensils } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Callout from '../components/Callout.astro';
+---
+
+<BaseLayout
+  title="Nossa história | Versão Vegana"
+  description="Conheça a Versão Vegana, uma cozinha de Sobradinho que adapta pratos brasileiros para versões vegetais, inclusivas e afetivas."
+  canonicalPath="/sobre"
+>
+  <PageHero
+    eyebrow="A história por trás da panela"
+    title="Nossa história"
+    text="A Versão Vegana nasceu de uma ideia simples: comida vegetal pode ser familiar, brasileira e cheia de personalidade."
+    tone="wine"
+  />
+
+  <section class="section page-shell story-section">
+    <div class="brand-symbol-panel">
+      <img src="/brand/icon.svg" alt="" width="810" height="810" />
+    </div>
+    <div class="long-copy">
+      <p class="eyebrow">Culinária inclusiva</p>
+      <h2>Não é apagar a tradição. É abrir espaço para novas versões dela.</h2>
+      <p>
+        A cozinha parte de referências conhecidas da comida brasileira e procura manter aquilo que faz um prato ser
+        lembrado: tempero, textura, generosidade e afeto.
+      </p>
+      <p>
+        Ao mesmo tempo, olha para escolhas vegetais, necessidades alimentares e ingredientes do Cerrado como
+        oportunidades de criar uma mesa mais diversa e conectada ao território.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="page-shell">
+      <div class="section-heading centered">
+        <p class="eyebrow">O que orienta a marca</p>
+        <h2>Quatro compromissos em cada decisão</h2>
+      </div>
+      <div class="pillar-grid">
+        <article><HeartHandshake aria-hidden="true" /><h3>Inclusão</h3><p>Mais pessoas reconhecidas e acolhidas à mesa.</p></article>
+        <article><Utensils aria-hidden="true" /><h3>Sabor e qualidade</h3><p>Comida gostosa vem antes de qualquer rótulo.</p></article>
+        <article><Leaf aria-hidden="true" /><h3>Saúde e bem-estar</h3><p>Escolhas conscientes sem transformar a refeição em obrigação.</p></article>
+        <article><MapPinned aria-hidden="true" /><h3>Território</h3><p>Cerrado, produtores e cultura local presentes na conversa.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section page-shell origin-band">
+    <div>
+      <span>Sobradinho, DF</span>
+      <h2>Uma cozinha local com vontade de alcançar mais mesas</h2>
+    </div>
+    <p>
+      A Versão Vegana atende Sobradinho e região com pedidos, congelados, encomendas e eventos.
+      Cada novo formato cresce com o mesmo cuidado: entender a necessidade, planejar a produção e entregar comida com identidade.
+    </p>
+  </section>
+
+  <Callout />
+</BaseLayout>
