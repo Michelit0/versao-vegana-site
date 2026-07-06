@@ -1,6 +1,18 @@
 {
   "rewrites": [
     {
+      "source": "/assets/:path*",
+      "destination": "https://versao-vegana-app.vercel.app/assets/:path*"
+    },
+    {
+      "source": "/vv.png",
+      "destination": "https://versao-vegana-app.vercel.app/vv.png"
+    },
+    {
+      "source": "/manifest.webmanifest",
+      "destination": "https://versao-vegana-app.vercel.app/manifest.webmanifest"
+    },
+    {
       "source": "/sistema",
       "destination": "https://versao-vegana-app.vercel.app/sistema"
     },
